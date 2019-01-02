@@ -16,10 +16,10 @@ describe('getElementsByClassName', function() {
       var $rootElement = $(htmlString);
       $('body').append($rootElement);
 
-      var result = getElementsByClassName('targetClassName');
-      var expectedNodeList = document.getElementsByClassName('targetClassName');
+      var result = getElementsByClassName('targetClassName'); // our actual result
+      var expectedNodeList = document.getElementsByClassName('targetClassName'); //html collection
       var expectedArray = Array.prototype.slice.apply(expectedNodeList);
-      var equality = _.isEqual(result, expectedArray); // why can't we use `===` here?
+      var equality = _.isEqual(result, expectedArray); // why can't we use `===` here? - _.isEqual compares the contents of the arrays
       expect(equality).to.equal(true);
 
       $rootElement.remove();
